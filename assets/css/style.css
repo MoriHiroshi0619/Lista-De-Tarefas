@@ -100,6 +100,10 @@ body{
     line-height: 1.2rem;
 }
 
+.listaTarefas li div{
+    display: flex;
+}
+
 .listaTarefas li div button:nth-last-child(2){
     margin-right: 15px;
 }
@@ -131,7 +135,7 @@ body{
     
     z-index: 100;
     transition: 0.3;
-    /*display: none;*/
+    display: none;
 }
 
 #janelaEditFundo.abrir{
@@ -150,7 +154,7 @@ body{
     border: 1px solid var(--cor02);
     border-radius: 20px;
     box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.531);
-    /*display: none;*/
+    display: none;
 }
 
 #janelaEdit.abrir{
@@ -162,7 +166,29 @@ body{
     margin-top: 20px;
 }
 
-#janelaEdit
+.topo-edit{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 1.35rem;
+}
+
+.topo-edit button{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.397);
+}
+
+.topo-edit button:hover{
+    background-color: var(--cor02);
+}
 
 .form-linha{
     display: flex;
