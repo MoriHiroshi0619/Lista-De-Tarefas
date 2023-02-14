@@ -35,6 +35,7 @@ function adiconarTarefa(tarefa){
 
 function criarTagLi(tarefa){
     let li = document.createElement('li');
+    li.id = tarefa.id;
 
     let span = document.createElement('span');
     span.classList.add('textoTarefa');
@@ -46,7 +47,9 @@ function criarTagLi(tarefa){
 
     let btn1 = document.createElement('button');
     btn1.classList.add('btn-controle');
+    btn1.setAttribute('onclick', 'editar('+tarefa.id+')');
     let btn2 = document.createElement('button');
+    btn2.setAttribute('onclick', 'deletar('+tarefa.id+')');
     btn2.classList.add('btn-controle');
 
     let imgEdit = document.createElement('img');
@@ -64,6 +67,42 @@ function criarTagLi(tarefa){
     return li;
 }
 
+function editar(idTarefa){
+    let li = document.getElementById(idTarefa);
+    if(li){
+        
+    }
+}
+
+function deletar(idTarefa){
+    let confirma = window.confirm('Tem certeza que deseja excluir?')
+    if(confirma){
+        let li = document.getElementById(idTarefa);
+        if(li){
+            listaTarefas.removeChild(li);
+        }
+    }
+}
+
 function gerarId(){
     return Math.floor(Math.random() * 10000);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

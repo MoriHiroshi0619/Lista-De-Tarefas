@@ -32,10 +32,10 @@ body{
     margin: 50px auto 0 auto;
     width: 90vw;
     max-width: 800px;
-    max-height: 900px;
-    overflow-x: hidden;
+    max-height: 800px;
     border-radius: 20px;
     padding: 55px;
+    position: relative;
 }
 
 .topo{
@@ -68,6 +68,14 @@ body{
 
 .topo button:hover{
     background-color: var(--cor04);
+}
+
+.main{
+    position: relative;
+    width: 100%;
+    max-height: 600px;
+    border-radius: 12px;
+    overflow: scroll;
 }
 
 .listaTarefas{
@@ -112,6 +120,13 @@ body{
 .btn-controle img{
     width: 25px;
 }
+
+
+
+
+
+
+
 
 
 
