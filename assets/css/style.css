@@ -121,6 +121,86 @@ body{
     width: 25px;
 }
 
+#janelaEditFundo{
+    position: fixed;
+    top: 0;
+    background-color: var(--cor01);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    
+    z-index: 100;
+    transition: 0.3;
+    /*display: none;*/
+}
+
+#janelaEditFundo.abrir{
+    display: block !important;
+}
+
+#janelaEdit{
+    position: fixed;
+    width: 450px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 200;
+    background-color: var(--cor03);
+    padding: 20px;
+    border: 1px solid var(--cor02);
+    border-radius: 20px;
+    box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.531);
+    /*display: none;*/
+}
+
+#janelaEdit.abrir{
+    display: block !important;
+}
+
+#janelaEdit form{
+    width: 100%;
+    margin-top: 20px;
+}
+
+#janelaEdit
+
+.form-linha{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+.form-linha label{
+    margin-bottom: 7px;
+}
+.form-linha:nth-child(2) label{
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+.form-linha input{
+    padding: 15px;
+    border-radius: 12px;
+    border: #3B42BF;
+    outline: none;
+    font-size: 1.2rem; 
+    background-color: var(--cor05);
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.267);
+}
+
+.form-linha button{
+    margin-bottom: 10px;
+    background-color: var(--cor05);
+    border: none;
+    border-radius: 12px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.267);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.form-linha button:hover{
+    background-color: var(--cor02);
+}
 
 
 
