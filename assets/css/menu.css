@@ -1,0 +1,130 @@
+.header{
+    height: 100px;
+    width: 100vw;
+    background-color: var(--cor01);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px 0 30px;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.27);
+}
+
+
+.logo{
+    font-size: 3.5rem;
+    font-family: var(--fonteLogo);
+    color: var(--cor05);
+    text-decoration: none;
+    font-variant: small-caps;
+}
+
+.menu{
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    font-size: 1.4rem;
+    font-family: var(--fontenNav);
+}
+
+.menu li a{
+    text-decoration: none;
+    color: var(--cor05);
+    padding: 5px 10px;
+    font-size: 1.6rem;
+    border-radius: 12px;
+    background-color: var(--cor01);
+    transition: .5s;
+}
+
+.menu li a:hover{
+    background-color: var(--cor02);
+    color: #ffffff;
+}
+
+.btn-mobile{
+    display: none;
+}
+
+@media (max-width: 680px){
+    .menu{
+        display: block;
+        visibility: hidden;
+        position: absolute;
+        width: 100vw;
+        height: 0px;
+        background-color: var(--cor03);
+        top: 100px;
+        left: 0px;
+        color: var(--cor03);
+        transition: .5s;
+        z-index: 1000;
+        overflow-y: hidden;
+        touch-action: auto;
+    }
+    .logo{
+        font-size: 2.4rem;
+    }
+
+    .nav.active .menu{
+        display: block;
+        visibility: visible;
+        height: calc(100vh - 100px);
+        overflow-y: auto;
+        touch-action: none;
+    }
+
+    .menu li{
+        text-align: center;
+        padding: 1rem 0;
+        margin: 0 1rem;
+        border-bottom: 2px solid rgba(0, 0, 0, 0.035);
+    }
+
+    .menu li a{
+        background: none;
+    }
+
+    .btn-mobile{
+        display: flex;
+        font-family: var(--fontenpadrao);
+        font-weight: 100;
+        font-size: 1.2rem;
+        padding: .5rem 1rem;
+        background: none;
+        border: none;
+        color: var(--cor05);
+        cursor: pointer;
+        gap: .5rem;
+    }
+
+    #hamburguer{
+        display: block;
+        border-top: 3px solid var(--cor05);
+        width: 25px;
+
+    }
+
+    #hamburguer::after, #hamburguer::before{
+        content: '';
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin-top: 7px;
+        background-color: currentColor;
+        transition: 0.5s;
+        position: relative;
+    }
+
+    .nav.active #hamburguer{
+        border-top-color: transparent;
+    }
+    .nav.active #hamburguer::before{
+        transform: rotate(225deg);
+    }
+    .nav.active #hamburguer::after{
+
+        top: -10px;
+        transform: rotate(-225deg);
+    }
+
+}

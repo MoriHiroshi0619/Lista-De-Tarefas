@@ -4,6 +4,7 @@ let listaTarefas = document.querySelector('.listaTarefas');
 let janenaEditFundo = document.querySelector('#janelaEditFundo');
 let jenalaEdit = document.querySelector('#janelaEdit');
 let idTarefaEdicao = document.querySelector('#idTarefaEdicao');
+let mainListaTarefa = document.querySelector('.main');
 
 inputNovaTarefa.addEventListener('keypress', (e) => {
     if(inputNovaTarefa.value.length == 0){
@@ -33,7 +34,8 @@ function adiconarTarefa(tarefa){
     let li = criarTagLi(tarefa);
     listaTarefas.appendChild(li);
     inputNovaTarefa.value = '';
-
+    let maxScroll = mainListaTarefa.scrollHeight;
+    mainListaTarefa.scrollTop = maxScroll;
 }
 
 function criarTagLi(tarefa){
