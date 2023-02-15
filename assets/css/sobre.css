@@ -1,0 +1,57 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Gruppo&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --fonteLogo: 'Gruppo', cursive;
+    --fonftePadrao: 'Prompt', sans-serif;
+    --fontenNav: 'Poiret One';
+    --cor01: #3B42BF;
+    --cor02: #6273D9;
+    --cor03: #7790D9;
+    --cor04: #A7BAF2;
+    --cor05: #F2F2F2;
+    --corFonteleitura: rgb(76, 76, 76);
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--cor05);
+}
+
+
+main{
+    display: flex;
+    width: 90vw;
+    background-color: var(--cor01);
+    margin: 100px auto 0 auto;
+    max-width: 800px;
+    padding: 55px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.397);
+    gap: 100px;
+}
+
+main div{
+    background-color: var(--cor05);
+    width: 50%;
+    padding: 20px;
+    border-radius: 12px;
+    
+}
+
+p{
+    color: var(--corFonteleitura);
+    font-family: var(--fonftePadrao);
+}
