@@ -21,7 +21,6 @@
     --cor03: #7790D9;
     --cor04: #A7BAF2;
     --cor05: #F2F2F2;
-    --corFonteleitura: rgb(76, 76, 76);
 }
 
 body{
@@ -30,9 +29,7 @@ body{
     background-color: var(--cor05);
 }
 
-
 main{
-    display: flex;
     width: 90vw;
     background-color: var(--cor01);
     margin: 100px auto 0 auto;
@@ -40,57 +37,43 @@ main{
     padding: 55px;
     border-radius: 20px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.397);
-    gap: 55px;
 }
 
-main div{
+div{
     background-color: var(--cor05);
-    padding: 20px;
+    padding: 25px;
     border-radius: 12px;
 }
 
-
-h1{
-    font-family: var(--fonteLogo);
-    margin-bottom: 20px;
+h1, h2{
+    font-family: var(--fonftePadrao);
     text-align: center;
-    font-size: 2.2rem;
+    margin-bottom: 20px;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.268);
 }
 
 p{
-    text-indent: 30px;
+    font-family: var(--fonftePadrao);
     text-align: justify;
-    color: var(--corFonteleitura);
-    font-family: var(--fonftePadrao);
+    text-indent: 30px;
+    line-height: .9rem;
+    margin-bottom: 20px;
 }
 
-h2{
-    text-align: center;
-    font-family: var(--fonftePadrao);
-    margin: 10px 0;
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.268);
+img{
+    width: 50px;
+    margin: 0 5px;
 }
 
-div > ul{
-    font-family: var(--fonftePadrao);
-    list-style: circle;
+ul{
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
 }
 
-div ul li{
-    margin: 10px 40px;
-}
 
-@media (max-width: 680px){
-    main{
-        width: 95vw;
-        flex-direction: column;
-        padding: 15px;
-        margin: 25px auto 0 auto;
-        gap: 15px;
-    }
-    h2{
-        text-align: start;
-    }
 
-}
+
+
+
+
