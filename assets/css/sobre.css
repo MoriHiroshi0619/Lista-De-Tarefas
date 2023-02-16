@@ -49,7 +49,25 @@ main div{
     border-radius: 12px;
 }
 
+h1{
+    font-family: var(--fonteLogo);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
 p{
     color: var(--corFonteleitura);
     font-family: var(--fonftePadrao);
+}
+
+h2{
+    font-family: var(--fonftePadrao);
+}
+
+div > ul{
+    list-style: none;
+}
+
+div ul li{
+    margin: 10px 10px;
 }
