@@ -6,6 +6,8 @@ let jenalaEdit = document.querySelector('#janelaEdit');
 let idTarefaEdicao = document.querySelector('#idTarefaEdicao');
 let mainListaTarefa = document.querySelector('.main');
 
+const maxIdDisponivels = Number.MAX_VALUE;
+
 inputNovaTarefa.addEventListener('keypress', (e) => {
     if(inputNovaTarefa.value.length == 0){
         return;
@@ -13,7 +15,7 @@ inputNovaTarefa.addEventListener('keypress', (e) => {
     if(e.keyCode == 13){
         let tarefa = {
             nome: inputNovaTarefa.value,
-            id: gerarId(),
+            id: gerarIdv2(),
         }
         adiconarTarefa(tarefa);
     }
@@ -25,7 +27,7 @@ btnAddTarefa.addEventListener('click', () => {
     }
     let tarefa = {
         nome: inputNovaTarefa.value,
-        id: gerarId(),
+        id: gerarIdv2(),
     }
     adiconarTarefa(tarefa);
 })
@@ -130,7 +132,42 @@ function deletar(idTarefa){
 }
 
 function gerarId(){
-    return Math.floor(Math.random() * 10000);
+    return Math.floor(Math.random() * maxIdDisponivels);
+}
+
+function gerarIdv2(){
+    return gerarIdUnico(); 
+}
+
+function gerarIdUnico(){
+
+    //debugger;
+    let itensDaLista = document.querySelector('.listaTarefas').children;
+    let idsGerados = [];
+
+    for(let i = 0; i < itensDaLista.length; i++){
+        idsGerados.push(itensDaLista[i].id);
+    }
+
+    let contadorIds = 0;
+    let id = gerarId();
+
+    while(contadorIds <= maxIdDisponivels && idsGerados.indexOf(id.toString()) > -1){
+        id = gerarId();
+        contadorIds++;
+
+        if(contadorIds > maxIdDisponivels){
+            alert("ops, ficamos sem IDs :/")
+            throw new Error("acabou os IDs :/");
+        }
+    }
+
+    //let id = gerarId();
+    //if(idsGerados.indexOf(id.toString()) > -1){
+    //    return gerarIdUnico();
+    //}
+
+    return id;
 }
 
 
