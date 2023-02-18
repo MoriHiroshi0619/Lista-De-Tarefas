@@ -8,6 +8,7 @@ let mainListaTarefa = document.querySelector('.main');
 
 const maxIdDisponivels = Number.MAX_VALUE;
 const key_code_enter = 13;
+const key_local_storage = 'listaDeTarefas';
 
 let bdTarefas = [];
 
@@ -101,11 +102,23 @@ function editar(idTarefa){
 
         salvar.addEventListener('click', (e) => {
             e.preventDefault();
+            debugger;
+            
             let idTarefa = idTarefaEdicao.innerHTML.replace('#', '');
             let tarefa = {
                 nome: inputEdit.value,
                 id: idTarefa,
             }
+
+            let indiceTarefa = bdTarefas.findIndex(t => t.id == idTarefa);
+            
+            if(indiceTarefa < 0){
+                throw new Error('id da tarefa não encontrada:', idTarefa);
+            }
+
+            bdTarefas[indiceTarefa] = tarefa;
+            salavrTarefasLocalStorage();
+
             let tarefaAtual = document.getElementById(idTarefa);
 
             if(tarefaAtual){
@@ -199,12 +212,12 @@ function renderTarefas(){
 }
 
 function salavrTarefasLocalStorage(){
-    localStorage.setItem('listaDeTarefas', JSON.stringify(bdTarefas));
+    localStorage.setItem(key_local_storage, JSON.stringify(bdTarefas));
 }
 
 function obterTarefasLocalStorage(){
-    if(localStorage.getItem('listaDeTarefas')){
-        bdTarefas = JSON.parse(localStorage.getItem('listaDeTarefas'))
+    if(localStorage.getItem(key_local_storage)){
+        bdTarefas = JSON.parse(localStorage.getItem(key_local_storage))
     }
 }
 
