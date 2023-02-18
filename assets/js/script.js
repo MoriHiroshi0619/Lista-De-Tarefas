@@ -102,7 +102,7 @@ function editar(idTarefa){
 
         salvar.addEventListener('click', (e) => {
             e.preventDefault();
-            debugger;
+            //debugger;
             
             let idTarefa = idTarefaEdicao.innerHTML.replace('#', '');
             let tarefa = {
@@ -111,7 +111,7 @@ function editar(idTarefa){
             }
 
             let indiceTarefa = bdTarefas.findIndex(t => t.id == idTarefa);
-            
+
             if(indiceTarefa < 0){
                 throw new Error('id da tarefa não encontrada:', idTarefa);
             }
