@@ -7,12 +7,18 @@ let idTarefaEdicao = document.querySelector('#idTarefaEdicao');
 let mainListaTarefa = document.querySelector('.main');
 
 const maxIdDisponivels = Number.MAX_VALUE;
+const key_code_enter = 13;
+
+let bdTarefas = [];
+
+obterTarefasLocalStorage();
+renderTarefas();
 
 inputNovaTarefa.addEventListener('keypress', (e) => {
     if(inputNovaTarefa.value.length == 0){
         return;
     }
-    if(e.keyCode == 13){
+    if(e.keyCode == key_code_enter){
         let tarefa = {
             nome: inputNovaTarefa.value,
             id: gerarIdv2(),
@@ -33,9 +39,12 @@ btnAddTarefa.addEventListener('click', () => {
 })
 
 function adiconarTarefa(tarefa){
+    bdTarefas.push(tarefa);
+    salavrTarefasLocalStorage();
     let li = criarTagLi(tarefa);
     listaTarefas.appendChild(li);
     inputNovaTarefa.value = '';
+
     let maxScroll = mainListaTarefa.scrollHeight;
     mainListaTarefa.scrollTop = maxScroll;
 }
@@ -121,6 +130,15 @@ function fecharJanelaEdit(){
 function deletar(idTarefa){
     let confirma = window.confirm('Tem certeza que deseja excluir?')
     if(confirma){
+        //debugger;
+        let indiceTarefa = bdTarefas.findIndex(t => t.id == idTarefa);
+        if(indiceTarefa > -1){
+            bdTarefas.splice(indiceTarefa, 1);
+            salavrTarefasLocalStorage();
+        }else{
+            throw new Error('id da tarefa não encontrada:', idTarefa);
+        }
+
         let li = document.getElementById(idTarefa);
         if(li){
             listaTarefas.removeChild(li);
@@ -168,6 +186,26 @@ function gerarIdUnico(){
     //}
 
     return id;
+}
+
+function renderTarefas(){
+    listaTarefas.innerHTML = "";
+    for(let i = 0; i < bdTarefas.length ; i++){
+        let li = criarTagLi(bdTarefas[i]);
+        listaTarefas.appendChild(li);
+    }
+
+    inputNovaTarefa.value = '';
+}
+
+function salavrTarefasLocalStorage(){
+    localStorage.setItem('listaDeTarefas', JSON.stringify(bdTarefas));
+}
+
+function obterTarefasLocalStorage(){
+    if(localStorage.getItem('listaDeTarefas')){
+        bdTarefas = JSON.parse(localStorage.getItem('listaDeTarefas'))
+    }
 }
 
 
