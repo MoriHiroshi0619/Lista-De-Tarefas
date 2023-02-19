@@ -86,7 +86,7 @@ div ul li{
         width: 95vw;
         flex-direction: column;
         padding: 15px;
-        margin: 25px auto 0 auto;
+        margin: 25px auto 35px auto;
         gap: 15px;
     }
     h2{
